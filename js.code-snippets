@@ -1,0 +1,8 @@
+{
+	"js-try": {
+		"scope": "",
+		"prefix": "!@js-try",
+		"body": ["try {", "    ${1:// code}", "} ", "catch (ex) {", "    ", "}", ""],
+		"description": "Javascript try catch block"
+	}
+}

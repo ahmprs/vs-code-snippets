@@ -1,0 +1,111 @@
+{
+	"php": {
+		"scope": "",
+		"prefix": "!@php",
+		"body": ["<?php", "${1: // code}", "?>"],
+		"description": "PHP area"
+	},
+	"php-for-each": {
+		"scope": "",
+		"prefix": "!@php-for-each",
+		"body": ["foreach ($$arr as $$k => $$v) {", "", "}", ""],
+		"description": "php for each loop"
+	},
+	"php-arr": {
+		"scope": "",
+		"prefix": "!@php-arr",
+		"body": ["$$arr = ['name' => 'Jack', 'age' => '30'];", "$$arr['height'] = 186;", ""],
+		"description": "php array"
+	},
+	"php-class": {
+		"scope": "",
+		"prefix": "!@php-class",
+		"body": [
+			"class Fruit {",
+			"  // Properties",
+			"  public $$name;",
+			"  public $$color;",
+			"",
+			"  // Methods",
+			"  function set_name($$name) {",
+			"    $$this->name = $$name;",
+			"  }",
+			"  function get_name() {",
+			"    return $$this->name;",
+			"  }",
+			"  function set_color($$color) {",
+			"    $$this->color = $$color;",
+			"  }",
+			"  function get_color() {",
+			"    return $$this->color;",
+			"  }",
+			"}",
+			"",
+			"$$apple = new Fruit();",
+			"$$apple->set_name('Apple');",
+			"$$apple->set_color('Red');"
+		],
+		"description": "php class"
+	},
+	"php-try": {
+		"scope": "",
+		"prefix": "!@php-try",
+		"body": ["try {", "    ${1:// code here}", "} ", "catch (Exception $$ex) {", "    ", "}", ""],
+		"description": "Try catch block"
+	},
+	"php-fn-read-all-text": {
+		"scope": "",
+		"prefix": "!@php-fn-read-all-text",
+		"body": [
+			"// reads all text of the file",
+			"function readAllText($$fileName)",
+			"{",
+			"    // opens a file to read from:",
+			"    $$fp = fopen($$fileName, \"r\");",
+			"",
+			"    // pulls all text in the file",
+			"    $$content = fread($$fp, filesize($$fileName));",
+			"",
+			"    // closes the file",
+			"    fclose($$fp);",
+			"",
+			"    // returns all text",
+			"    return $$content;",
+			"}"
+		],
+		"description": "Reads all text"
+	},
+	"php-fn-read-all-lines": {
+		"scope": "",
+		"prefix": "!@php-fn-read-all-lines",
+		"body": [
+			"// reads all lines of the file",
+			"function readAllLines($$fileName)",
+			"{",
+			"    // reads all text",
+			"    $$content = readAllText($$fileName);",
+			"",
+			"    // splits the text by \"\\\\n\" character",
+			"    $$lines = explode(\"\\\\n\", $$content);",
+			"",
+			"    // returns the lines",
+			"    return $$lines;",
+			"}"
+		],
+		"description": "Reads all lines"
+	},
+	"php-fn-write-all-text": {
+		"scope": "",
+		"prefix": "!@php-fn-write-all-text",
+		"body": [
+			"// writes all text in an output file",
+			"function writeAllText($$fileName, $$textContent)",
+			"{",
+			"    $$fp = fopen($$fileName, 'w');",
+			"    fwrite($$fp, $$textContent);",
+			"    fclose($$fp);",
+			"}"
+		],
+		"description": "Write all text"
+	}
+}
